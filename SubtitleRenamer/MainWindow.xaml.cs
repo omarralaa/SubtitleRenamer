@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+using SubtitleRenamer.Utilities;
 using Path = System.IO.Path;
 
 namespace SubtitleRenamer
@@ -30,13 +31,14 @@ namespace SubtitleRenamer
         {
             InitializeComponent();
         }
-
-
         
         private void BrowseVideosFiles_Click(object sender, RoutedEventArgs e)
         {
-            var openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = true;
+            var openFileDialog = new OpenFileDialog
+            {
+                Multiselect = true,
+                Filter = Extensions.VideoFormats
+            };
             var result = openFileDialog.ShowDialog();
 
             if (result == false) return;
@@ -46,8 +48,11 @@ namespace SubtitleRenamer
 
         private void BrowseSubtitlesFiles_Click(object sender, RoutedEventArgs e)
         {
-            var openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = true;        
+            var openFileDialog = new OpenFileDialog
+            {
+                Multiselect = true,
+                Filter = Extensions.SubFormats
+            };
             var result = openFileDialog.ShowDialog();
 
             if (result == false) return;
@@ -58,7 +63,9 @@ namespace SubtitleRenamer
 
         private void Rename_Click(object sender, RoutedEventArgs e)
         {
-            if (_videosFilesNames.Length != _subtitlesFilesNames.Length)
+            if (_videosFilesNames.IsNullOrEmpty() || _subtitlesFilesNames.IsNullOrEmpty())
+                MessageBox.Show("Make Sure that the lists contain files");
+            else if (_videosFilesNames.Length != _subtitlesFilesNames.Length)
                 MessageBox.Show("The Number of videos and subtitles must be equal");
             else
             {
@@ -75,15 +82,28 @@ namespace SubtitleRenamer
                     }
 
                     MessageBox.Show("Files are Renamed Successfully");
+                    ClearLists();
                 }
+
                 catch
                 {
                     MessageBox.Show("Something Wrong Happened");
                 }
-
             }
-            
-
         }
+
+        private void ClearList_Click(object sender, RoutedEventArgs e)
+        {
+            ClearLists();
+        }
+
+        private void ClearLists()
+        {
+            VideosList.ItemsSource = null;
+            _videosFilesNames = null;
+            SubtitlesList.ItemsSource = null;
+            _subtitlesFilesNames = null;
+        }
+
     }
 }

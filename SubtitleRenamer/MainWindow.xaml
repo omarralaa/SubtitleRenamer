@@ -9,8 +9,9 @@
         " Width="800">
     <Grid>
         <Button Content="Rename" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Margin="331,365,0,0" Height="32" Click="Rename_Click"/>
-        <Button Content="Browse Videos Files" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Margin="64,338,0,0" Height="32" Click="BrowseVideosFiles_Click"/>
-        <Button Content="Browse Subtitles Files" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Margin="559,338,0,0" Height="32" Click="BrowseSubtitlesFiles_Click"/>
+        <Button Content="Clear Lists" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Margin="331,405,0,0" Height="32" Click="ClearList_Click"/>
+        <Button Content="Browse Videos Files" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Margin="65,338,0,0" Height="32" Click="BrowseVideosFiles_Click"/>
+        <Button Content="Browse Subtitles Files" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Margin="562,338,0,0" Height="32" Click="BrowseSubtitlesFiles_Click"/>
         <ListView Name="VideosList" HorizontalAlignment="Left" Height="298" VerticalAlignment="Top" Width="204" Margin="40,20,0,0">
             <ListView.View>
                 <GridView>
