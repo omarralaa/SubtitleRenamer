@@ -82,7 +82,8 @@ namespace SubtitleRenamer
                     }
 
                     MessageBox.Show("Files are Renamed Successfully");
-                    ClearLists();
+                    ClearVideoList();
+                    ClearSubtitlesList();
                 }
 
                 catch
@@ -92,18 +93,28 @@ namespace SubtitleRenamer
             }
         }
 
-        private void ClearList_Click(object sender, RoutedEventArgs e)
-        {
-            ClearLists();
-        }
+        
 
-        private void ClearLists()
+        private void ClearVideoList()
         {
             VideosList.ItemsSource = null;
             _videosFilesNames = null;
+        }
+
+        private void ClearSubtitlesList()
+        {
             SubtitlesList.ItemsSource = null;
             _subtitlesFilesNames = null;
         }
 
+        private void ClearVideosFiles_Click(object sender, RoutedEventArgs e)
+        {
+            ClearVideoList();
+        }
+
+        private void ClearSubtitlesFiles_Click(object sender, RoutedEventArgs e)
+        {
+            ClearSubtitlesList();
+        }
     }
 }

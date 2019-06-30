@@ -5,27 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SubtitleRenamer"
         mc:Ignorable="d"
-        Title="Subtitle Renamer" Height="500
-        " Width="800">
+        Title="Subtitle Renamer" Height="850" Width="850"
+        Background="#3e4364">
     <Grid>
-        <Button Content="Rename" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Margin="331,365,0,0" Height="32" Click="Rename_Click"/>
-        <Button Content="Clear Lists" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Margin="331,405,0,0" Height="32" Click="ClearList_Click"/>
-        <Button Content="Browse Videos Files" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Margin="65,338,0,0" Height="32" Click="BrowseVideosFiles_Click"/>
-        <Button Content="Browse Subtitles Files" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Margin="562,338,0,0" Height="32" Click="BrowseSubtitlesFiles_Click"/>
-        <ListView Name="VideosList" HorizontalAlignment="Left" Height="298" VerticalAlignment="Top" Width="204" Margin="40,20,0,0">
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="241" Margin="306,731,0,0" Height="50" Click="Rename_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/rename_btn.png" />
+            </Button.Background>
+        </Button>
+        <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="173" Margin="135,333,0,0" Height="47" Click="BrowseVideosFiles_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/browse_vid_files_btn.png" />
+            </Button.Background>
+        </Button>
+        <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="173" Margin="546,333,0,0" Height="47" Click="ClearVideosFiles_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/clear_vid_files_btn.png" />
+            </Button.Background>
+        </Button>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="135,648,0,0" Height="47" Click="BrowseSubtitlesFiles_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/browse_sub_files_btn.png" />
+            </Button.Background>
+        </Button>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="546,648,0,0" Height="47" Click="ClearSubtitlesFiles_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/clear_sub_files_btn.png" />
+            </Button.Background>
+        </Button>
+        <ListView Name="VideosList" HorizontalAlignment="Left" Height="210" VerticalAlignment="Top" Width="750" Margin="50,100,0,0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView Name="SubtitlesList" HorizontalAlignment="Left" Height="298" VerticalAlignment="Top" Width="204" Margin="532,20,0,0">
+        <ListView Name="SubtitlesList" HorizontalAlignment="Left" Height="210" VerticalAlignment="Top" Width="750" Margin="50,420,0,0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <Image Source="Images/logo.png" HorizontalAlignment="Left" Height="44" Margin="218,31,0,0" VerticalAlignment="Top" Width="414"/>
 
     </Grid>
 </Window>
